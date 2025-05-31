@@ -13,6 +13,8 @@
         <link href-"{% static 'app/css/style.css' %}" rel="stylesheet"/>
         <link href-"{% static 'app/css/owl.carousel.min.css' %}" rel="stylesheet"/>
         <link href-"{% static 'app/css/all.min.css' %}" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
         <link rel="stylesheet" type="text/css" href="{% static 'app/css/main.css' %}">
 
         <!--JS-->
@@ -22,6 +24,26 @@
         <script src="{% static 'app/js/all.min.js' %}"> </script>
         <script src="{% static 'app/js/owl.carousel.min.js' %}"> </script>
         <script src="{% static 'app/js/myscript.js' %}"> </script>
+        <script type="text/javascript">
+            var user = '{{request.user}}'
+            function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie('csrftoken');
+        </script>
+        
         <title>Web ban hang online</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -98,5 +120,6 @@
         <Footer class="container--fluid bg-success text-center fixed-bottom p-2 mt-5">
                 Copyright 2025
         </footer>
+        <script src="{%static 'app/js/cart.js' %}"> </script> 
     </body>
 </html>
